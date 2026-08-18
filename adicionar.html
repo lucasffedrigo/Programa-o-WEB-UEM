@@ -1,0 +1,47 @@
+<a href="index.html">&#8592; Voltar</a>
+
+<h1>Adicionar filme</h1>
+
+<fieldset>
+<form action="/filmes">
+    <label for="titulo">Titulo</label>
+    <br>
+    <input id=titulo name=titulo type="text" required>
+    <br>
+    <label for="ano">Ano</label>
+    <br>
+    <input id=ano name=ano type="number" min="1888" max="2030" required>  
+    <br>
+    <label for="genero">Gênero</label>
+    <br>
+    <input id=titulo name=titulo type="text" required>
+    <br>
+    <label for="poster">URL do pôster</label>
+    <br>
+    <input id=poster name=poster type="text">
+    <br>
+    <label for="status">Status</label>
+    <br>
+
+    <select name="select">
+    <option value="valor1"selected>Quero assistir</option>
+    <option value="valor1">Já assisti</option>
+
+    </select>
+
+    <br>
+
+    <label for="nota">Nota (1 a 5)</label>
+    <br>
+    <input type="number" min="1" max="5">
+
+    <br>
+    <label for="comentario">Comentario</label>
+    <br>
+    <textarea></textarea>
+    <br>
+
+    <button>Cancelar</button>
+    <button>Salvar</button>
+</form>
+</fieldset>
