@@ -1,60 +1,71 @@
-<div>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>CineTrack - Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-<h1>CineTrack</h1>
+  <header class="header">
+    <h1 class="logo">CineTrack</h1>
+    <div class="header-actions">
+      <input type="text" class="input-search" placeholder="Buscar filme">
+      <button class="btn-add">+ Adicionar</button>
+    </div>
+  </header>
 
-    </header>
-    <input type="search" aria-label="Buscar filme">
-    <button>+ Adicionar</button>
+  <nav aria-label="Filtros de status">
+    <button>Todos</button>   
+    <button>Assistido</button>
+    <button>Assistindo</button>
+    <button>Quero assistir</button> 
+  </nav>
 
-    <header>
-    <br>
+  <main>
+  <!-- Card 1 -->
+  <section class="card">
+    <img src="TESTE.png" alt="A Origem" class="card-poster">
+    <h2 class="card-title">A Origem</h2>
+    <p class="card-meta">2010 · Ficção científica</p>
+    <p class="card-rating">Nota: ★★★★★</p>
+    <div class="card-footer">
+      <span>assistido</span>
+      <button>Editar</button>
+      <button>Remover</button>
+    </div>
+  </section>
 
-    <nav aria-label="Filtros de status">
-        <button>Todos</button>   
-        <button>Assistido</button>
-        <button>Assistindo</button>
-        <button>Quero assistir</button> 
-    </nav>
-  
-    <main>
-        </section>
-        <br>
-        <img src="TESTE.png" width=250px; height=200px alt="filme">
-        <h2><b>A Origem</b></h2>
+  <!-- Card 2 -->
+  <section class="card">
+    <img src="TESTE.png" alt="Parasita" class="card-poster">
+    <h2 class="card-title">Parasita</h2>
+    <p class="card-meta">2019 · Suspense</p>
+    <p class="card-rating">Nota: ★★★★☆</p>
+    <div class="card-footer">
+      <span>assistido</span>
+      <button>Editar</button>
+      <button>Remover</button>
+    </div>
+  </section>
 
-        <br>
-        <p>2010 - Ficção cientifica</p>
-        <p>Nota: ⭐⭐⭐⭐⭐ </p>
+  <!-- Card 3 -->
+  <section class="card">
+    <img src="TESTE.png" alt="O Auto da Compadecida" class="card-poster">
+    <h2 class="card-title">O Auto da Compadecida</h2>
+    <p class="card-meta">2000 · Comédia</p>
+    <p class="card-rating">Nota: ★★★★★</p>
+    <div class="card-footer">
+      <span>assistido</span>
+      <button>Editar</button>
+      <button>Remover</button>
+    </div>
+  </section>
+</main>
 
-        <p>Assistido
-        <button>Editar</button>
-        <button>Remover</button></p>
-        </section>
-        </section>
-        <img src="TESTE.png" width=250px; height=200px alt="filme">
-        <h2><b>Parasita</b></h2>
+  <footer>
+    <small>CineTrack - UEM</small>
+  </footer>
 
-        <br>
-        <p>2019 - Suspense</p>
-        <p>Nota: ⭐⭐⭐⭐⭐ </p>
-
-        <p>Assistido
-        <button>Editar</button>
-        <button>Remover</button></p>
-        </section>
-        <section>
-        <img src="TESTE.png" width=250px; height=200px alt="filme">
-        <h2><b>O Auto da Compadecida</b></h2>
-
-        <br>
-        <p>2000 - Comédia</p>
-        <p>Nota: ⭐⭐⭐⭐⭐ </p>
-
-        <p>Assistido
-        <button>Editar</button>
-        <button>Remover</button></p>
-        </section>
-
-    </main>
-    <footer><small>CineTrack - UEM</small></footer>
-</div>
+</body>
+</html>
