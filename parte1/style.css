@@ -1,6 +1,6 @@
-/* Barra azul do topo */
+/* Barra do topo */
 .header {
-  background-color: #1a365d; /* Tom azul escuro */
+  background-color: #4c1d95; /* Roxo escuro (cara de cinema) */
   padding: 16px 24px;
   display: flex;
   flex-direction: column;
@@ -36,9 +36,9 @@
   color: #94a3b8;
 }
 
-/* Botão vermelho + Adicionar */
+/* Botão + Adicionar */
 .btn-add {
-  background-color: #c53030; /* Tom vermelho */
+  background-color: #db2777; /* rosa/magenta */
   color: #ffffff;
   border: none;
   padding: 6px 14px;
@@ -49,12 +49,12 @@
 }
 
 .btn-add:hover {
-  background-color: #9b2c2c;
+  background-color: #be185d;
 }
 
-/* Fundo cinza claro geral da página */
+/* Fundo geral da página */
 body {
-  background-color: #f3f4f6;
+  background-color: #f5f3ff; /* Lilás bem claro */
   font-family: Arial, sans-serif;
   margin: 0;
   padding-bottom: 30px;
@@ -66,9 +66,12 @@ nav {
 }
 
 nav button {
-  padding: 4px 8px;
+  padding: 4px 12px;
   font-size: 0.85rem;
   cursor: pointer;
+  border: 1px solid #ddd6fe;
+  border-radius: 999px;
+  background-color: #ffffff;
 }
 
 /* Contêiner principal em grade de cards */
@@ -85,6 +88,14 @@ main {
   border-radius: 8px;
   padding: 16px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-top: 3px solid #7c3aed; /* detalhe roxo no topo */
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+/* Leve destaque ao passar o mouse */
+.card:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
 }
 
 /* Pôster do filme */
@@ -114,8 +125,8 @@ main {
 
 /* Linha da avaliação/estrelas */
 .card-rating {
-  font-size: 0.75rem;
-  color: #374151;
+  font-size: 0.85rem;
+  color: #f59e0b; /* estrelas douradas */
   margin: 0 0 8px 0;
 }
 
@@ -163,6 +174,7 @@ footer {
 
 /* Botão de filtro ativo */
 nav button.ativo {
-  background-color: #1a365d;
+  background-color: #7c3aed;
   color: #ffffff;
+  border-color: #7c3aed;
 }

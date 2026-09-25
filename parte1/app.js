@@ -1,7 +1,5 @@
-// CineTrack - app.js
-// Parte 1: dados iniciais, persistência local e render dos cards
+// CineTrack
 
-// Dados de exemplo (carregados na primeira visita)
 var filmesIniciais = [
   { id: 1, titulo: "A Origem", ano: 2010, genero: "Ficção científica", poster: "https://placehold.co/200x300?text=A+Origem", nota: 5, status: "assistido", comentario: "Revejo sempre." },
   { id: 2, titulo: "Parasita", ano: 2019, genero: "Suspense", poster: "https://placehold.co/200x300?text=Parasita", nota: 4, status: "assistido", comentario: "" },
@@ -11,10 +9,8 @@ var filmesIniciais = [
   { id: 6, titulo: "Cidade de Deus", ano: 2002, genero: "Drama", poster: "https://placehold.co/200x300?text=Cidade+de+Deus", nota: 4, status: "quero", comentario: "" }
 ];
 
-// Lista que fica na memória durante o uso
 var filmes = [];
 
-// Carrega os filmes do localStorage; na primeira visita usa os dados iniciais
 function carregar() {
   var salvo = localStorage.getItem("filmes");
   if (salvo) {
@@ -25,12 +21,10 @@ function carregar() {
   }
 }
 
-// Salva a lista atual no localStorage
 function salvar() {
   localStorage.setItem("filmes", JSON.stringify(filmes));
 }
 
-// Monta as 5 estrelas (cheias e vazias) conforme a nota
 function estrelas(nota) {
   var texto = "";
   for (var i = 1; i <= 5; i++) {
@@ -43,14 +37,12 @@ function estrelas(nota) {
   return texto;
 }
 
-// Texto e classe da badge de status
 function textoStatus(status) {
   if (status === "assistido") return "assistido";
   if (status === "assistindo") return "assistindo";
   return "quero assistir";
 }
 
-// Desenha os cards na tela
 function render(lista) {
   var main = document.getElementById("lista");
   main.innerHTML = "";
@@ -58,7 +50,6 @@ function render(lista) {
   for (var i = 0; i < lista.length; i++) {
     var f = lista[i];
 
-    // Se não tiver pôster, usa um placeholder
     var poster = f.poster;
     if (!poster) {
       poster = "https://placehold.co/200x300?text=Sem+Poster";
@@ -81,6 +72,50 @@ function render(lista) {
   }
 }
 
-// Inicialização
+var termoBusca = "";
+var statusAtivo = "todos";
+
+// filtra por titulo e status ao mesmo tempo
+function aplicarFiltros() {
+  var lista = [];
+
+  for (var i = 0; i < filmes.length; i++) {
+    var f = filmes[i];
+
+    var titulo = f.titulo.toLowerCase();
+    var combinaBusca = titulo.indexOf(termoBusca.toLowerCase()) !== -1;
+    var combinaStatus = statusAtivo === "todos" || f.status === statusAtivo;
+
+    if (combinaBusca && combinaStatus) {
+      lista.push(f);
+    }
+  }
+
+  render(lista);
+}
+
+var tempoBusca;
+var campoBusca = document.getElementById("busca");
+campoBusca.addEventListener("input", function () {
+  clearTimeout(tempoBusca);
+  tempoBusca = setTimeout(function () {
+    termoBusca = campoBusca.value;
+    aplicarFiltros();
+  }, 250);
+});
+
+var botoesFiltro = document.querySelectorAll("nav button");
+for (var b = 0; b < botoesFiltro.length; b++) {
+  botoesFiltro[b].addEventListener("click", function () {
+    for (var j = 0; j < botoesFiltro.length; j++) {
+      botoesFiltro[j].classList.remove("ativo");
+    }
+    this.classList.add("ativo");
+
+    statusAtivo = this.getAttribute("data-status");
+    aplicarFiltros();
+  });
+}
+
 carregar();
-render(filmes);
+aplicarFiltros();
