@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>CineTrack - Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <h1 class="logo">CineTrack</h1>
+    <div class="header-actions">
+      <input type="text" id="busca" class="input-search" placeholder="Buscar filme">
+      <button class="btn-add">+ Adicionar</button>
+    </div>
+  </header>
+
+  <nav aria-label="Filtros de status">
+    <button data-status="todos">Todos</button>   
+    <button data-status="assistido">Assistido</button>
+    <button data-status="assistindo">Assistindo</button>
+    <button data-status="quero">Quero assistir</button> 
+  </nav>
+
+  <main id="lista">
+    <!-- Os cards são gerados pelo app.js -->
+  </main>
+
+  <footer>
+    <small>CineTrack - UEM</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
