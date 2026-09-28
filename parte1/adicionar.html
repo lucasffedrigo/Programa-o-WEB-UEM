@@ -1,48 +1,56 @@
-<a href="home.html">&#8592; Voltar</a>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>CineTrack - Adicionar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-<h1>Adicionar filme</h1>
+  <header class="header">
+    <h1 class="logo">CineTrack</h1>
+  </header>
 
-<fieldset>
-<form action="/filmes">
-    <label for="titulo">Titulo</label>
-    <br>
-    <input id="titulo" name="titulo" type="text" required>
-    <br>
-    <label for="ano">Ano</label>
-    <br>
-    <input id="ano" name="ano" type="number" min="1888" max="2030" required>  
-    <br>
-    <label for="genero">Gênero</label>
-    <br>
-    <input id="genero" name="genero" type="text" required>
-    <br>
-    <label for="poster">URL do pôster</label>
-    <br>
-    <input id="poster" name="poster" type="text">
-    <br>
-    <label for="status">Status</label>
-    <br>
+  <main class="form-page">
+    <a href="home.html" class="voltar">&#8592; Voltar</a>
 
-    <select id="status" name="status">
-    <option value="quero" selected>Quero assistir</option>
-    <option value="assistindo">Assistindo</option>
-    <option value="assistido">Já assisti</option>
+    <h1 id="form-titulo" class="form-page-titulo">Adicionar filme</h1>
 
-    </select>
+    <form id="form-filme" class="form-card">
+      <label for="titulo">Titulo</label>
+      <input id="titulo" name="titulo" type="text" required>
 
-    <br>
+      <label for="ano">Ano</label>
+      <input id="ano" name="ano" type="number" min="1888" max="2030" required>
 
-    <label for="nota">Nota (1 a 5)</label>
-    <br>
-    <input id="nota" name="nota" type="number" min="1" max="5">
+      <label for="genero">Gênero</label>
+      <input id="genero" name="genero" type="text" required>
 
-    <br>
-    <label for="comentario">Comentario</label>
-    <br>
-    <textarea id="comentario" name="comentario"></textarea>
-    <br>
+      <label for="poster">URL do pôster</label>
+      <input id="poster" name="poster" type="text">
 
-    <button type="button">Cancelar</button>
-    <button>Salvar</button>
-</form>
-</fieldset>
+      <label for="status">Status</label>
+      <select id="status" name="status">
+        <option value="quero" selected>Quero assistir</option>
+        <option value="assistindo">Assistindo</option>
+        <option value="assistido">Já assisti</option>
+      </select>
+
+      <label for="nota">Nota (1 a 5)</label>
+      <input id="nota" name="nota" type="number" min="1" max="5" required>
+
+      <label for="comentario">Comentario</label>
+      <textarea id="comentario" name="comentario"></textarea>
+
+      <p id="erro" class="form-erro"></p>
+
+      <div class="form-acoes">
+        <button type="button" id="cancelar" class="btn-cancelar">Cancelar</button>
+        <button type="submit" class="btn-salvar">Salvar</button>
+      </div>
+    </form>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

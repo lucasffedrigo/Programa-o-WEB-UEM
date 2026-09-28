@@ -178,3 +178,103 @@ nav button.ativo {
   color: #ffffff;
   border-color: #7c3aed;
 }
+
+/* Página do formulário */
+.form-page {
+  display: block;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.voltar {
+  color: #7c3aed;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.form-page-titulo {
+  color: #4c1d95;
+  margin: 12px 0 16px 0;
+}
+
+/* Caixa branca do formulário */
+.form-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-top: 3px solid #7c3aed;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-card label {
+  font-size: 0.85rem;
+  color: #374151;
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+.form-card input,
+.form-card select,
+.form-card textarea {
+  padding: 8px 10px;
+  border: 1px solid #ddd6fe;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  margin-bottom: 14px;
+  outline: none;
+  font-family: Arial, sans-serif;
+}
+
+.form-card input:focus,
+.form-card select:focus,
+.form-card textarea:focus {
+  border-color: #7c3aed;
+}
+
+.form-card textarea {
+  min-height: 70px;
+  resize: vertical;
+}
+
+.form-erro {
+  color: #c53030;
+  font-size: 0.85rem;
+  margin: 0 0 12px 0;
+}
+
+/* Botões do formulário */
+.form-acoes {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-salvar {
+  background-color: #7c3aed;
+  color: #ffffff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.btn-salvar:hover {
+  background-color: #6d28d9;
+}
+
+.btn-cancelar {
+  background-color: #ffffff;
+  color: #374151;
+  border: 1px solid #cbd5e1;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.btn-cancelar:hover {
+  background-color: #f3f4f6;
+}
