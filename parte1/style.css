@@ -1,6 +1,23 @@
+:root {
+  --roxo: #4c1d95;
+  --roxo-medio: #7c3aed;
+  --roxo-escuro: #6d28d9;
+  --rosa: #db2777;
+  --rosa-escuro: #be185d;
+  --fundo: #f5f3ff;
+  --branco: #ffffff;
+  --texto: #111827;
+  --texto-suave: #6b7280;
+  --borda: #ddd6fe;
+  --estrela: #f59e0b;
+
+  --raio: 8px;
+  --raio-pequeno: 4px;
+}
+
 /* Barra do topo */
 .header {
-  background-color: #4c1d95; /* Roxo escuro (cara de cinema) */
+  background-color: var(--roxo);
   padding: 16px 24px;
   display: flex;
   flex-direction: column;
@@ -9,7 +26,7 @@
 
 /* Título CineTrack */
 .logo {
-  color: #ffffff;
+  color: var(--branco);
   font-family: sans-serif;
   font-size: 1.25rem;
   font-weight: bold;
@@ -26,7 +43,7 @@
 /* Campo de busca */
 .input-search {
   padding: 6px 12px;
-  border-radius: 4px;
+  border-radius: var(--raio-pequeno);
   border: 1px solid #cbd5e1;
   font-size: 0.9rem;
   outline: none;
@@ -38,23 +55,23 @@
 
 /* Botão + Adicionar */
 .btn-add {
-  background-color: #db2777; /* rosa/magenta */
-  color: #ffffff;
+  background-color: var(--rosa);
+  color: var(--branco);
   border: none;
   padding: 6px 14px;
-  border-radius: 4px;
+  border-radius: var(--raio-pequeno);
   font-size: 0.9rem;
   cursor: pointer;
   transition: background-color 0.2s;
 }
 
 .btn-add:hover {
-  background-color: #be185d;
+  background-color: var(--rosa-escuro);
 }
 
 /* Fundo geral da página */
 body {
-  background-color: #f5f3ff; /* Lilás bem claro */
+  background-color: var(--fundo);
   font-family: Arial, sans-serif;
   margin: 0;
   padding-bottom: 30px;
@@ -66,12 +83,12 @@ nav {
 }
 
 nav button {
-  padding: 4px 12px;
+  padding: 6px 14px;
   font-size: 0.85rem;
   cursor: pointer;
-  border: 1px solid #ddd6fe;
+  border: 1px solid var(--borda);
   border-radius: 999px;
-  background-color: #ffffff;
+  background-color: var(--branco);
 }
 
 /* Contêiner principal em grade de cards */
@@ -84,11 +101,11 @@ main {
 
 /* Estrutura de cada card */
 .card {
-  background-color: #ffffff;
-  border-radius: 8px;
+  background-color: var(--branco);
+  border-radius: var(--raio);
   padding: 16px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  border-top: 3px solid #7c3aed; /* detalhe roxo no topo */
+  border-top: 3px solid var(--roxo-medio);
   transition: box-shadow 0.2s, transform 0.2s;
 }
 
@@ -103,7 +120,7 @@ main {
   width: 70px;
   height: 95px;
   object-fit: cover;
-  border-radius: 4px;
+  border-radius: var(--raio-pequeno);
   display: block;
   margin-bottom: 10px;
 }
@@ -113,20 +130,20 @@ main {
   font-size: 1rem;
   font-weight: bold;
   margin: 0 0 6px 0;
-  color: #111827;
+  color: var(--texto);
 }
 
 /* Texto de ano/gênero */
 .card-meta {
   font-size: 0.75rem;
-  color: #6b7280;
+  color: var(--texto-suave);
   margin: 0 0 4px 0;
 }
 
 /* Linha da avaliação/estrelas */
 .card-rating {
   font-size: 0.85rem;
-  color: #f59e0b; /* estrelas douradas */
+  color: var(--estrela);
   margin: 0 0 8px 0;
 }
 
@@ -149,7 +166,7 @@ main {
 /* Rodapé da página */
 footer {
   text-align: center;
-  color: #6b7280;
+  color: var(--texto-suave);
 }
 
 /* Badge colorida de status */
@@ -157,7 +174,7 @@ footer {
   padding: 2px 8px;
   border-radius: 12px;
   font-size: 0.7rem;
-  color: #ffffff;
+  color: var(--branco);
 }
 
 .badge-assistido {
@@ -174,9 +191,9 @@ footer {
 
 /* Botão de filtro ativo */
 nav button.ativo {
-  background-color: #7c3aed;
-  color: #ffffff;
-  border-color: #7c3aed;
+  background-color: var(--roxo-medio);
+  color: var(--branco);
+  border-color: var(--roxo-medio);
 }
 
 /* Página do formulário */
@@ -188,23 +205,23 @@ nav button.ativo {
 }
 
 .voltar {
-  color: #7c3aed;
+  color: var(--roxo-medio);
   text-decoration: none;
   font-size: 0.9rem;
 }
 
 .form-page-titulo {
-  color: #4c1d95;
+  color: var(--roxo);
   margin: 12px 0 16px 0;
 }
 
 /* Caixa branca do formulário */
 .form-card {
-  background-color: #ffffff;
-  border-radius: 8px;
+  background-color: var(--branco);
+  border-radius: var(--raio);
   padding: 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  border-top: 3px solid #7c3aed;
+  border-top: 3px solid var(--roxo-medio);
   display: flex;
   flex-direction: column;
 }
@@ -220,7 +237,7 @@ nav button.ativo {
 .form-card select,
 .form-card textarea {
   padding: 8px 10px;
-  border: 1px solid #ddd6fe;
+  border: 1px solid var(--borda);
   border-radius: 6px;
   font-size: 0.9rem;
   margin-bottom: 14px;
@@ -231,7 +248,7 @@ nav button.ativo {
 .form-card input:focus,
 .form-card select:focus,
 .form-card textarea:focus {
-  border-color: #7c3aed;
+  border-color: var(--roxo-medio);
 }
 
 .form-card textarea {
@@ -252,8 +269,8 @@ nav button.ativo {
 }
 
 .btn-salvar {
-  background-color: #7c3aed;
-  color: #ffffff;
+  background-color: var(--roxo-medio);
+  color: var(--branco);
   border: none;
   padding: 8px 18px;
   border-radius: 6px;
@@ -262,11 +279,11 @@ nav button.ativo {
 }
 
 .btn-salvar:hover {
-  background-color: #6d28d9;
+  background-color: var(--roxo-escuro);
 }
 
 .btn-cancelar {
-  background-color: #ffffff;
+  background-color: var(--branco);
   color: #374151;
   border: 1px solid #cbd5e1;
   padding: 8px 18px;
@@ -277,4 +294,52 @@ nav button.ativo {
 
 .btn-cancelar:hover {
   background-color: #f3f4f6;
+}
+
+/* Telas pequenas (celular) */
+@media (max-width: 400px) {
+  main {
+    grid-template-columns: 1fr;
+    padding: 12px;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+}
+
+/* Modo escuro automático */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fundo: #1e1b2e;
+    --branco: #2a2540;
+    --texto: #f5f3ff;
+    --texto-suave: #a99fce;
+    --borda: #4c1d95;
+  }
+
+  body {
+    color: var(--texto);
+  }
+
+  .card-footer {
+    color: var(--texto-suave);
+  }
+
+  .form-card label {
+    color: var(--texto-suave);
+  }
+
+  .input-search {
+    background-color: var(--branco);
+    color: var(--texto);
+    border-color: var(--borda);
+  }
+
+  .btn-cancelar {
+    background-color: var(--branco);
+    color: var(--texto);
+  }
 }
