@@ -1,0 +1,142 @@
+/* Barra azul do topo */
+.header {
+  background-color: #1a365d; /* Tom azul escuro */
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Título CineTrack */
+.logo {
+  color: #ffffff;
+  font-family: sans-serif;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Contêiner do campo de busca e botão */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Campo de busca */
+.input-search {
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: 1px solid #cbd5e1;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.input-search::placeholder {
+  color: #94a3b8;
+}
+
+/* Botão vermelho + Adicionar */
+.btn-add {
+  background-color: #c53030; /* Tom vermelho */
+  color: #ffffff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-add:hover {
+  background-color: #9b2c2c;
+}
+
+/* Fundo cinza claro geral da página */
+body {
+  background-color: #f3f4f6;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding-bottom: 30px;
+}
+
+/* Espaçamento da área de filtros */
+nav {
+  padding: 12px 20px 0 20px;
+}
+
+nav button {
+  padding: 4px 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+/* Contêiner principal para centralizar e empilhar os cards */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 20px;
+}
+
+/* Estrutura de cada card */
+.card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Pôster do filme */
+.card-poster {
+  width: 70px;
+  height: 95px;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Título do filme */
+.card-title {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0 0 6px 0;
+  color: #111827;
+}
+
+/* Texto de ano/gênero */
+.card-meta {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin: 0 0 4px 0;
+}
+
+/* Linha da avaliação/estrelas */
+.card-rating {
+  font-size: 0.75rem;
+  color: #374151;
+  margin: 0 0 8px 0;
+}
+
+/* Rodapé do card: status + botões */
+.card-footer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: #374151;
+  margin: 0;
+}
+
+.card-footer button {
+  padding: 2px 6px;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+/* Rodapé da página */
+footer {
+  text-align: center;
+  color: #6b7280;
+}
