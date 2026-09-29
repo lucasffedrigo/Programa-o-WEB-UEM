@@ -6,8 +6,8 @@ Aplicação web para gerenciar uma lista pessoal de filmes: registrar o que já 
 
 ## Aluno(s)
 
-- Nome: _preencher_
-- R.A.: _preencher_
+- Nome: Lucas Rodrigues Fedrigo    
+- R.A.: 129060
 
 ## Como executar
 
