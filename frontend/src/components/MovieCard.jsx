@@ -4,7 +4,7 @@ const nomesStatus = {
   quero: 'quero assistir'
 };
 
-export default function MovieCard({ filme, aoEditar }) {
+export default function MovieCard({ filme, aoEditar, aoRemover, removendo }) {
   const estrelas = '★'.repeat(filme.nota) + '☆'.repeat(5 - filme.nota);
   const poster = filme.poster || 'https://placehold.co/200x300?text=Sem+Poster';
 
@@ -19,7 +19,9 @@ export default function MovieCard({ filme, aoEditar }) {
       <div className="card-footer">
         <span className={`badge badge-${filme.status}`}>{nomesStatus[filme.status]}</span>
         <button type="button" onClick={() => aoEditar(filme)}>Editar</button>
-        <button type="button" disabled>Remover</button>
+        <button type="button" onClick={() => aoRemover(filme)} disabled={removendo}>
+          {removendo ? 'Removendo...' : 'Remover'}
+        </button>
       </div>
     </section>
   );

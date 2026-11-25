@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { listarFilmes } from './api.js';
+import { atualizarFilme, criarFilme, listarFilmes, removerFilme } from './api.js';
 import Header from './components/Header.jsx';
 import StatusFilter from './components/StatusFilter.jsx';
 import MovieList from './components/MovieList.jsx';
@@ -11,7 +11,11 @@ export default function App() {
   const [termoBusca, setTermoBusca] = useState('');
   const [status, setStatus] = useState('todos');
   const [carregando, setCarregando] = useState(true);
-  const [erro, setErro] = useState('');
+  const [erroCarregamento, setErroCarregamento] = useState('');
+  const [erroOperacao, setErroOperacao] = useState('');
+  const [erroFormulario, setErroFormulario] = useState('');
+  const [salvando, setSalvando] = useState(false);
+  const [idRemovendo, setIdRemovendo] = useState(null);
   const [filmeEmEdicao, setFilmeEmEdicao] = useState(null);
   const [tela, setTela] = useState('lista');
 
@@ -20,7 +24,7 @@ export default function App() {
       try {
         setFilmes(await listarFilmes());
       } catch (falha) {
-        setErro(`Não foi possível carregar os filmes: ${falha.message}`);
+        setErroCarregamento(`Não foi possível carregar os filmes: ${falha.message}`);
       } finally {
         setCarregando(false);
       }
@@ -40,15 +44,70 @@ export default function App() {
   });
 
   function abrirFormulario(filme = null) {
+    setErroFormulario('');
+    setErroOperacao('');
     setFilmeEmEdicao(filme);
     setTela('formulario');
+  }
+
+  async function salvarFilme(dados) {
+    if (salvando) return;
+    setSalvando(true);
+    setErroFormulario('');
+
+    try {
+      if (filmeEmEdicao) {
+        const atualizado = await atualizarFilme(filmeEmEdicao.id, dados);
+        setFilmes((listaAtual) => listaAtual.map((filme) =>
+          filme.id === atualizado.id ? atualizado : filme
+        ));
+      } else {
+        const criado = await criarFilme(dados);
+        setFilmes((listaAtual) => [...listaAtual, criado]);
+      }
+
+      setTela('lista');
+      setFilmeEmEdicao(null);
+    } catch (falha) {
+      setErroFormulario(`Não foi possível salvar o filme: ${falha.message}`);
+    } finally {
+      setSalvando(false);
+    }
+  }
+
+  async function removerFilmeDaLista(filme) {
+    if (idRemovendo !== null) return;
+    const confirmou = window.confirm(`Remover “${filme.titulo}” da lista?`);
+    if (!confirmou) return;
+
+    setIdRemovendo(filme.id);
+    setErroOperacao('');
+    try {
+      await removerFilme(filme.id);
+      setFilmes((listaAtual) => listaAtual.filter((item) => item.id !== filme.id));
+    } catch (falha) {
+      setErroOperacao(`Não foi possível remover o filme: ${falha.message}`);
+    } finally {
+      setIdRemovendo(null);
+    }
   }
 
   if (tela === 'formulario') {
     return (
       <>
         <Header />
-        <MovieForm filme={filmeEmEdicao} aoCancelar={() => setTela('lista')} />
+        <MovieForm
+          filme={filmeEmEdicao}
+          erro={erroFormulario}
+          salvando={salvando}
+          aoSalvar={salvarFilme}
+          aoCancelar={() => {
+            if (!salvando) {
+              setErroFormulario('');
+              setTela('lista');
+            }
+          }}
+        />
       </>
     );
   }
@@ -57,12 +116,15 @@ export default function App() {
     <>
       <Header busca={busca} aoBuscar={setBusca} aoAdicionar={() => abrirFormulario()} mostrarBusca />
       <StatusFilter status={status} aoFiltrar={setStatus} />
+      {erroOperacao && <p className="aviso-erro" role="alert">{erroOperacao}</p>}
       <MovieList
         filmes={filmesVisiveis}
         carregando={carregando}
-        erro={erro}
+        erro={erroCarregamento}
         temFilmes={filmes.length > 0}
         aoEditar={abrirFormulario}
+        aoRemover={removerFilmeDaLista}
+        idRemovendo={idRemovendo}
       />
       <footer><small>CineTrack - UEM</small></footer>
     </>

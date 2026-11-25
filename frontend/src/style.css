@@ -376,6 +376,16 @@ nav button.ativo {
   color: var(--texto-suave);
 }
 
+.aviso-erro {
+  margin: 12px 20px 0;
+  color: #b91c1c;
+  font-size: 0.9rem;
+}
+
+.form-card .form-erro {
+  margin: 0 0 12px;
+}
+
 .voltar {
   background: none;
   border: 0;
