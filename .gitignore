@@ -6,3 +6,12 @@ Desktop.ini
 # Editores
 .vscode/
 .idea/
+
+# Node.js e Vite
+node_modules/
+dist/
+
+# Configuracoes locais
+.env
+.env.*
+!.env.example
